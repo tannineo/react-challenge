@@ -6,9 +6,25 @@ const Form = () => {
     const languages = ["English", "Irish", "Spanish", "German", "Polish"];
 
     const [selectedCountry, setSelectedCountry] = useState("");
+    const [selectedLanguage, setSelectedLanguage] = useState("");
+    const [inputValue, setInputValue] = useState("");
 
     const handleCountryChange = (event: any) => {
         setSelectedCountry(event.target.value);
+    };
+
+    const handleLanguageChange = (event: any) => {
+        setSelectedLanguage(event.target.value);
+    };
+
+    const handleInputChange = (event: any) => {
+        setInputValue(event.target.value);
+    };
+
+    const handleClick = () => {
+        setInputValue("");
+        setSelectedCountry("");
+        setSelectedLanguage("");
     };
 
     return (
@@ -19,8 +35,9 @@ const Form = () => {
                     <input
                         className="shadow-md border-b-4 rounded-md border-teal-100 focus:border-teal-300 h-8 indent-2 mb-5"
                         type="text"
-                        id="email"
-                        name="email"
+                        id="emailInput"
+                        value={inputValue}
+                        onChange={handleInputChange}
                         required
                     />
                     <label className="text-sm">Country/Region</label>
@@ -36,7 +53,11 @@ const Form = () => {
                         ))}
                     </select>
                     <label className="text-sm">Language</label>
-                    <select id="language" className="shadow-md border-b-4 rounded-md border-teal-100 focus:border-teal-300 h-8 indent-2 mb-5">
+                    <select
+                        id="language"
+                        className="shadow-md border-b-4 rounded-md border-teal-100 focus:border-teal-300 h-8 indent-2 mb-5"
+                        value={selectedLanguage}
+                        onChange={handleLanguageChange}>
                         {languages.map((language, index) => (
                             <option key={index} value={language}>
                                 {language}
@@ -45,7 +66,9 @@ const Form = () => {
                     </select>
                     <div className="p-2 flex">
                         <button className="ml-10 bg-slate-100 p-2 border-teal-300 border-2 text-sm font-bold hover:border-teal-500">SAVE</button>
-                        <button className="ml-12 pl-1 p-2  border-teal-300 border-y-2 hover:border-teal-500">Cancel</button>
+                        <button className="ml-12 pl-1 p-2  border-teal-300 border-y-2 hover:border-teal-500" onClick={handleClick}>
+                            Cancel
+                        </button>
                     </div>
                 </form>
             </div>
