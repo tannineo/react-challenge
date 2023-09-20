@@ -12,7 +12,7 @@ const Navbar = () => {
                                 <a href="/form" className="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">
                                     Form
                                 </a>
-                                <a href="/pdf" className="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">
+                                <a href="/pdf_upload" className="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">
                                     PDF
                                 </a>
                             </div>
